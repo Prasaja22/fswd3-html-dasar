@@ -2,6 +2,8 @@
 /* header */
 .header-nav{
     background-color: rgb(12, 140, 214); position: fixed; top: 0; width: 100%; left: 0;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
 }
 
 .header-title{
@@ -16,6 +18,8 @@
     display: inline-block;
     background-color: rgba(0, 0, 0, 0.158);
     width: 100%;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
 }
 
 /* cardlist */
