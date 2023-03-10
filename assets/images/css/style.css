@@ -1,0 +1,90 @@
+/* cass untuk mengatur grid */
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+
+.grid-container > div{
+    margin: 10px;
+}
+
+.item-1{
+    background-color: brown;
+    grid-row: span 3;
+    height: 550px;
+    grid-column: span 2;
+}
+
+.item-2{
+    background-color: brown;
+    height: 230px;
+    grid-row: span 2;
+    grid-column: span 4;
+}
+
+.item-3{
+    background-color: brown;
+    height: 600px;
+    grid-row: span 4;
+    grid-column: span 2;
+}
+
+.item-4{
+    background-color: brown;
+    height: 300px;
+    grid-row: span 1;
+    grid-column: span 2;
+}
+
+.item-5{
+    background-color: brown;
+    grid-row: span 5;
+    height: 550px;
+    grid-column: span 2;
+}
+
+.item-6{
+    background-color: brown;
+    height: 550px;
+    grid-row: span 4;
+    grid-column: span 2;
+}
+
+.item-7{
+    background-color: brown;
+    height: 250px;
+    grid-column: span 2;
+}
+
+/* css untuk mengatur flex */
+.flex-container{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flex-1{
+    height: 200px;
+    width: 66.2%;
+    background-color: aqua;
+}
+
+.flex-2{
+    width: 32.2%;
+    background-color: aqua;
+}
+
+.flex-3{
+    height: 200px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: aqua;
+}
+
+
+
+
