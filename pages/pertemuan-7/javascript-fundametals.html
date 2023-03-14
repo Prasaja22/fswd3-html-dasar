@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Javascript Fundametals</h1>
+    </header>
+    <script>
+        // statememt menampilkan log di dalam console tanpa menggunakan semicolon ";"
+        console.log("Hallo namas saya Ghozy")
+
+        // statememt menampilkan log di dalam console menggunakan semicolon ";"
+        console.log("Saya senang bermain gitar"); confirm("Hallo....!");
+
+        // penulisan variabel global pada javascript (var)
+        var nama = "Ghozy Nouval Satya Prasaja"
+
+        // penulisan variable local dalam javascirpt (let)
+        function alamatRumah(){
+            let alamat = "Malang, Jawa Timur"
+            console.log("Rumah saya di " + alamat)
+        }
+
+        // penulisan variabel constan dalam javascript (const)
+        const tanggalLahit = 13
+
+        console.log("Nama saya " + nama + " tanggal lahir saya " + tanggalLahit)
+        alamatRumah()
+
+
+        console.log("=====================")
+
+        // primitive data type
+        // number
+        function angka(){
+            let n = 30
+            let a = 10
+            let c = n + a
+            console.log("HAsil dari penjumlahan : " + c)
+        }
+
+        // String
+        function kata(){
+            let kendaraan = "Mobil"
+            let device = "Laptop"
+            let hobby = "Gitar"
+
+            console.log(kendaraan + " " + device + " " + hobby )
+        }
+
+        // boolean
+        function isGreater(){
+            let a = 0
+            let n = 2
+
+            let c = a > 2
+            let d = a < n
+
+            console.log(c)
+            console.log(d)
+        }
+
+        // object
+        function skills(){
+            let hobby = {
+                pemrograman : "java",
+                olahraga : "voly",
+                juara   : 1,
+                device : ["Laptop", 1 ],
+                faforit : true
+            }
+
+            console.log(hobby.pemrograman + " " + hobby.olahraga + " " + hobby.juara + " " + hobby.device + " " + hobby.faforit)  
+        }
+
+        // Conversion
+        function convStr(){
+            let usia = 21
+            console.log(typeof usia)
+            console.log(usia)
+            usia = String(usia)
+            
+            console.log(typeof usia)
+            console.log(usia)
+        }
+
+        function convNum(){
+            let usia = "100"
+            console.log(typeof usia)
+            console.log(usia)
+            usia = Number(usia)
+            
+            console.log(typeof usia)
+            console.log(usia)
+        }
+
+
+        function convBool(){
+            let usia = "100"
+            console.log("Tipe awal variabel adalah "  + typeof usia)
+            console.log(usia)
+            usia = Boolean(usia)
+            
+            console.log("Tipe variable sekarang adalah" +typeof usia)
+            console.log(usia)
+        }
+
+        function operators(){
+            let a = 20
+            let b = 10
+
+            console.log(a + b)
+            console.log(a - b)
+            console.log(a * b)
+            console.log(a / b)
+            console.log(a % b)
+            console.log(a ** b)
+        }
+
+        function assigmentOperaotors(){
+            let a = 2
+
+            a += 4
+            console.log(a)
+            a -= 1
+            console.log(a)
+            a *= 2
+            console.log(a)
+            a **= 3
+            console.log(a)
+            a /= 2 
+            console.log(a)
+            a %= 2
+            console.log(a)
+        }
+
+
+        angka()  
+        kata()
+        isGreater()
+        skills()
+        console.log("======Conversion String=======")
+        convStr()
+        console.log("======Conversion Number=======")
+        convNum()
+        console.log("======Conversion Boolean=======")
+        convBool()
+        console.log("======Operator=======")
+        operators()
+        console.log("======Assigment Operator=======")
+        assigmentOperaotors()
+
+        // Pop up alert
+        alert("Hallo")
+
+        // Pop up prompt
+        let rsponse = prompt("Hari apa ini?")
+        alert("Hari ini adalah hari " + rsponse)
+        console.log(rsponse)
+
+        let conf = confirm("Apakah tugas kamu sudah selesai?")
+        alert(conf)
+        console.log(conf)
+
+        // branch
+
+        //percabangan if
+        let question = prompt("Ibukota negara Amerika adalah?")
+        if(question == "Washington DC" || question == "Washington" || question == "washington"){
+            alert("Jawaban Anda Benar!")
+            console.log("Jawaban benar adalah : " + question)
+        } else {
+            alert("Jawaban Anda Salah!")
+            console.log("Jawaban Salah : " + question)
+        }
+
+        // switch case
+        let pertanyaan = prompt("Balon manakah yang meletus?")
+        switch(pertanyaan){
+            case "hijau" || "Hijau":
+                alert("DUARR!!!")
+                console.log("Warna" + pertanyaan)
+            break;
+            case "Merah" || "merah":
+                alert("Aman aja")
+                console.log("Warna" + pertanyaan)
+            break;
+            case "Kuning" || "kuning":
+                alert("Kaget!!")
+                console.log("Warna" + pertanyaan)
+            break;
+            case "Biru" || "biru":
+                alert("Nggak Meledak!")
+                console.log("Warna" +pertanyaan)
+            break;
+            default:
+                alert("Terserah sih")
+                console.log("Jawaban : " + pertanyaan)
+            break;
+        }
+
+    </script>
+</body>
+</html>
