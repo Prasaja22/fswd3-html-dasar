@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Aplikasi Suit</h1>
+    </header>
+
+    <script>
+        var lose = 0
+        var poin = 0
+        var mainLagi
+        var pointCounter = 0
+
+        do{
+            let user = prompt("Batu, Gunting, Keertass!!")
+            if(user == "Batu" || user == "batu" ){
+            let komp = Math.floor(Math.random() * 3)
+            // random dari komputer
+            // 0 Batu
+            // 1 Gunting
+            // 2 Kertas
+            if(komp == 0){
+                alert("Kamu seri")
+                alert("Lawan mengeluarkan Batu!")
+                console.log("=====Seri=====")
+                console.log("Hasil Pertandingan Batu vs Batu")
+                console.log("Point : " + poin)
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else if(komp == 1){
+                let menang = 1
+                alert("Horee!! Kamu Menang")
+                console.log("=====Menang=====")
+                alert("Lawan mengeluarkan Gunting!")
+                console.log("Hasil Pertandingan Batu vs Gunting")
+                console.log("Menang point : " + (poin+= menang))
+                pointCounter += menang
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else {
+                let kalah = 1
+                alert("Kamu kalah")
+                console.log("=====Kalah=====")
+                alert("Lawan mengeluarkan Kertas!")
+                console.log("Hasil Pertandingan Batu vs Kertas")
+                if(poin <= 0){
+                    poin = 0;
+                    console.log("Poin : " + poin)
+                } else {
+                    poin -= kalah
+                    console.log("Poin : "+ poin)
+                }
+                lose += kalah
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            }  
+
+        } else if(user == "Gunting"){
+            let komp = Math.floor(Math.random() * 3)
+            // random dari komputer
+            // 0 Batu
+            // 1 Gunting
+            // 2 Kertas
+            if(komp == 0){
+                let kalah = 1
+                alert("Kamu kalah")
+                console.log("=====Kalah=====")
+                alert("Lawan mengeluarkan Batu!")
+                console.log("Hasil Pertandingan Gunting vs Batu")
+                if(poin <= 0){
+                    poin = 0;
+                    console.log("Poin : " + poin)
+                } else {
+                    poin -= kalah
+                    console.log("Poin : "+ poin)
+                }
+                lose += kalah
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else if(komp == 1){
+                alert("Kamu seri")
+                alert("Lawan mengeluarkan Gunting!")
+                console.log("=====Seri=====")
+                console.log("Hasil Pertandingan Gunting vs Gunting")
+                console.log("Point : " + poin)
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else {
+                let menang = 1
+                alert("Horee!! Kamu Menang")
+                console.log("=====Menang=====")
+                alert("Lawan mengeluarkan Kertas!")
+                console.log("Hasil Pertandingan Gunting vs Kertas")
+                console.log("Menang point : " + (poin+= menang))
+                pointCounter += menang
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            }  
+        } else if(user == "Kertas"){
+            let komp = Math.floor(Math.random() * 3)
+            // random dari komputer
+            // 0 Batu
+            // 1 Gunting
+            // 2 Kertas
+            if(komp == 0){
+                let menang = 1
+                alert("Horee!! Kamu Menang")
+                console.log("=====Menang=====")
+                alert("Lawan mengeluarkan Batu!")
+                console.log("Hasil Pertandingan Kertas vs Batu")
+                console.log("Menang point : " + (poin+= menang))
+                pointCounter += menang
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else if(komp == 1){
+                let kalah = 1
+                alert("Kamu kalah")
+                console.log("=====Kalah=====")
+                alert("Lawan mengeluarkan Gunting!")
+                console.log("Hasil Pertandingan Kertas vs Gunting")
+                if(poin <= 0){
+                    poin = 0;
+                    console.log("Poin : " + poin)
+                } else {
+                    poin -= kalah
+                    console.log("Poin : "+ poin)
+                }
+                lose += kalah
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            } else {
+                alert("Kamu seri")
+                alert("Lawan mengeluarkan Kertas!")
+                console.log("=====Seri=====")
+                console.log("Hasil Pertandingan Kertas vs Kertas")
+                console.log("Point : " + poin)
+                mainLagi = confirm("apakah kamu mau main lagi?")
+            }  
+        } else {
+            alert("Jawaban tidak sesuai")
+            mainLagi = confirm("apakah kamu mau main lagi?")
+        }
+
+        } while(mainLagi == true)
+        confirm("Point terkumpul adalah " + poin + " Poin")
+        confirm("Total kemenanganmu adalah " + pointCounter + " Poin")
+        confirm("Kekalahan kamu adalah " + lose + " Kekalahan")
+        console.log("======RESULT======")
+        console.log("Poin yang kamu kumpulkan adalah : " + poin + " Poin")
+        console.log("Kamu berhasil menang sebanyak : " + pointCounter + " Kemenangan")
+        console.log("Kekalahan kamu adalah : " + lose + " Kekalahan")
+
+    </script>
+</body>
+</html>
