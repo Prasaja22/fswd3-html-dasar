@@ -17,7 +17,7 @@
                 <div class="bg-dark p-4">
                     <h5 class="text-white h4 pb-3">Apa yang ingin kamu kerjakan?</h5>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Tulis kegiatanmu disini.."
+                        <input id="input-todo" type="text" class="form-control" placeholder="Tulis kegiatanmu disini.."
                             aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-success p-md-2" type="button"
@@ -40,31 +40,11 @@
         </div>
     </header>
 
-    <div class="container-fluid mt-3">
-        <div class="alert alert-warning alert-dismissible fade show p-4" role="alert">
-            <div class="p-2">
+    <div class="container-fluid mt-3" id="content">
 
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            </div>
-            <button type="button" class="close btn-close p-2 m-2" data-dismiss="alert" aria-label="Close">
-            </button>
-          </div>
+        <!-- Isi dari alert todo list -->
+
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -74,6 +54,46 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script>
+        // deklarasi variabel untuk input teks
+        var inputText = document.getElementById("input-todo")
+        // deklarasi variabel button
+        var buttonTodo = document.getElementById("button-addon2")
+        // membuat aksi agar saat button di clik akan menambahkan konten
+        buttonTodo.addEventListener("click", function() {
+            var text = inputText.value
+
+
+
+            // membuat elemen div alert
+            let divAlerts = document.createElement("div")
+            // nenambahkan class kedalam div elemen
+            divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
+            divAlerts.setAttribute("role", "alert")
+            // membuat elemen div baru untuk padding text
+            let divPadding = document.createElement("div")
+            divAlerts.appendChild(divPadding)
+            // menambahkan class ke divpadding
+            divPadding.classList.add('p-2')
+            // membuat button
+            let buttonAlerts = document.createElement("button")
+            // menambahkan class ke elemen button
+            buttonAlerts.classList.add('close', 'btn-close', 'p-2', 'm-2')
+            // menambahkan type = button
+            buttonAlerts.type = "button"
+            buttonAlerts.dataset.dismiss = "alert"
+            // memasukan button ke divAlerts
+            divAlerts.appendChild(buttonAlerts)
+            // create text into div elemetn
+            let textTodo = document.createTextNode(text)
+            // insert the text into div element
+            divPadding.appendChild(textTodo)
+            // add the div alert content into the html web page
+            let content = document.querySelector("#content")
+            // append div into content
+            content.appendChild(divAlerts)
+        })
     </script>
 </body>
 
