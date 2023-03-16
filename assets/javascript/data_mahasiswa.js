@@ -1034,6 +1034,7 @@ let max2 = filterMhs2.reduce((a, b) => Math.max(a, b.score), -Infinity);
 // menghitung nilai min perempuan
 let min2 = filterMhs2.reduce((prev, current) => prev.score < current.score ? prev : current);
 
+
 let mhs = { 
   "male" : {
     "count" : filterMhs.length,
