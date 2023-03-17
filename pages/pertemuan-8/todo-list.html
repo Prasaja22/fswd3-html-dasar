@@ -42,7 +42,9 @@
 
     <div class="container-fluid mt-3" id="content">
 
-        <div class="p-3 mb-2 bg-light text-dark"> <h5>Kegiatan : </h5> </div>
+        <div class="p-3 mb-2 bg-light text-dark">
+            <h5>Kegiatan : </h5>
+        </div>
 
         <!-- Isi dari alert todo list -->
 
@@ -62,40 +64,112 @@
         var inputText = document.getElementById("input-todo")
         // deklarasi variabel button
         var buttonTodo = document.getElementById("button-addon2")
-        // membuat aksi agar saat button di clik akan menambahkan konten
-        buttonTodo.addEventListener("click", function() {
-            var text = inputText.value
+
+        // mendapatkan items local storage saat halaman pertamakali di load
+
+        function getAllData(){
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i)
+                let value = localStorage.getItem(key)
+                let divAlerts = document.createElement("div")
+                // nenambahkan class kedalam div elemen
+                divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
+                divAlerts.setAttribute("role", "alert")
+                // membuat elemen div baru untuk padding text
+                let divPadding = document.createElement("div")
+                divAlerts.appendChild(divPadding)
+                // menambahkan class ke divpadding
+                divPadding.classList.add('p-2')
+                // membuat button
+                var buttonAlerts = document.createElement("button")
+                // menambahkan class ke elemen button
+                buttonAlerts.classList.add('close', 'btn-close', 'p-2', 'm-2')
+                // menambahkan type = button
+                buttonAlerts.type = "button"
+
+                buttonAlerts.dataset.dismiss = 'alert'
+
+                buttonAlerts.id = "hapusItems"
+                // memasukan button ke divAlerts
+                divAlerts.appendChild(buttonAlerts)
+                // create text into div elemetn
+                let textTodo = document.createElement('p')
+                textTodo.textContent = value
+                // insert the text into div element
+                divPadding.appendChild(textTodo)
+                // add the div alert content into the html web page
+                let content = document.querySelector("#content")
+                // append div into content
+                content.appendChild(divAlerts)
+
+
+                buttonAlerts.addEventListener('click', function(){
+                    removeData(key)
+
+                    // location.reload()
+                })
+            }
+            
+        }
+
+        function removeData(key){
+            localStorage.removeItem(key)
+        }
+
+
+        function storeTheData(){
+
+            // membuat aksi agar saat button di clik akan menambahkan konten
+            buttonTodo.addEventListener("click", function() {
+                var text = inputText.value
+                // membuat elemen div alert
+                // set local storage
+                localStorage.setItem('item-' + localStorage.length, text)
+                let divAlerts = document.createElement("div")
+                // nenambahkan class kedalam div elemen
+                divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
+                divAlerts.setAttribute("role", "alert")
+                // membuat elemen div baru untuk padding text
+                let divPadding = document.createElement("div")
+                divAlerts.appendChild(divPadding)
+                // menambahkan class ke divpadding
+                divPadding.classList.add('p-2')
+                // membuat button
+                var buttonAlerts = document.createElement("button")
+                // menambahkan class ke elemen button
+                buttonAlerts.classList.add('close', 'btn-close', 'p-2', 'm-2')
+                // menambahkan type = button
+                buttonAlerts.type = "button"
+                buttonAlerts.id = "hapusItems"
+                // memasukan button ke divAlerts
+                divAlerts.appendChild(buttonAlerts)
+                // create text into div elemetn
+                let textTodo = document.createElement('p')
+                textTodo.textContent = text
+                // insert the text into div element
+                divPadding.appendChild(textTodo)
+                // add the div alert content into the html web page
+                let content = document.querySelector("#content")
+                // append div into content
+                content.appendChild(divAlerts)
+
+                alert("Kegiatan Berhasil Ditambahkan")
+
+                location.reload()
+            })
+            getAllData()
+
+        }
+
+        storeTheData()
+
+        if(localStorage.length === 0){
+            console.log('Kosong')
+        }
 
 
 
-            // membuat elemen div alert
-            let divAlerts = document.createElement("div")
-            // nenambahkan class kedalam div elemen
-            divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
-            divAlerts.setAttribute("role", "alert")
-            // membuat elemen div baru untuk padding text
-            let divPadding = document.createElement("div")
-            divAlerts.appendChild(divPadding)
-            // menambahkan class ke divpadding
-            divPadding.classList.add('p-2')
-            // membuat button
-            let buttonAlerts = document.createElement("button")
-            // menambahkan class ke elemen button
-            buttonAlerts.classList.add('close', 'btn-close', 'p-2', 'm-2')
-            // menambahkan type = button
-            buttonAlerts.type = "button"
-            buttonAlerts.dataset.dismiss = "alert"
-            // memasukan button ke divAlerts
-            divAlerts.appendChild(buttonAlerts)
-            // create text into div elemetn
-            let textTodo = document.createTextNode(text)
-            // insert the text into div element
-            divPadding.appendChild(textTodo)
-            // add the div alert content into the html web page
-            let content = document.querySelector("#content")
-            // append div into content
-            content.appendChild(divAlerts)
-        })
+
     </script>
 </body>
 
