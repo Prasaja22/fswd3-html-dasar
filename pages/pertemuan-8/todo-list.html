@@ -75,6 +75,9 @@
                 // nenambahkan class kedalam div elemen
                 divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
                 divAlerts.setAttribute("role", "alert")
+
+                divAlerts.id = "contentTodo"
+
                 // membuat elemen div baru untuk padding text
                 let divPadding = document.createElement("div")
                 divAlerts.appendChild(divPadding)
@@ -103,11 +106,19 @@
                 content.appendChild(divAlerts)
 
 
+                
+                // document.getElementById("contentTodo").addEventListener("click", function(){
+                //     var div = this
+                //     div.classList.toggle("alert-warning")
+                //     div.classList.toggle("alert-success")
+                // })
+                
                 buttonAlerts.addEventListener('click', function(){
                     removeData(key)
 
                     // location.reload()
                 })
+
             }
             
         }
@@ -129,6 +140,8 @@
                 // nenambahkan class kedalam div elemen
                 divAlerts.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show', 'p-4')
                 divAlerts.setAttribute("role", "alert")
+
+                
                 // membuat elemen div baru untuk padding text
                 let divPadding = document.createElement("div")
                 divAlerts.appendChild(divPadding)
