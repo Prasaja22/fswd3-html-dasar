@@ -43,7 +43,7 @@
     <div class="container-fluid mt-3" id="content">
 
         <div class="p-3 mb-2 bg-light text-dark">
-            <h5>Kegiatan : </h5>
+            <h5> Kegiatan : </h5>
         </div>
 
         <!-- Isi dari alert todo list -->
@@ -66,7 +66,7 @@
         var buttonTodo = document.getElementById("button-addon2")
         // instansiasi API
         const baseUrl = "https://crudcrud.com/api/"
-        const apiKey = "431ea52b12c04748a65e1b00ce1b0ce7"
+        const apiKey = "020bafe236fe4169a151bd3f4e92151b"
         const urlApi = `${baseUrl}` + `${apiKey}`
         const endPointTodo = `${urlApi}/todo`
         // const endPointGetTodo = `${urlApi}/get`
@@ -97,8 +97,11 @@
                 // memasukan button ke divAlerts
                 divAlerts.appendChild(buttonAlerts)
                 // create text into div elemetn
+            
+
                 let textTodo = document.createElement('p')
                 textTodo.textContent = element.nama
+
                 // insert the text into div element
                 divPadding.appendChild(textTodo)
                 // add the div alert content into the html web page
@@ -121,8 +124,44 @@
                 })
 
 
-                // divAlerts.addEventListener('click', function(){
 
+                // update
+
+                
+
+                divAlerts.addEventListener('click', function(){
+
+                    let war = "alert-warning"
+                    let succ = "alert-success"
+
+                    var div = this
+                    div.classList.toggle(`${war}`)
+                    div.classList.toggle(`${succ}`)
+
+                    
+                    if(element.toggle == war){
+                        var theUpdatedToodo = {
+                        nama: `${element.nama}`,
+                        toggle : `${succ}` ,
+                    }
+                    
+                    } else {
+
+                        var theUpdatedToodo = {
+                        nama: `${element.nama}`,
+                        toggle : `${war}` ,
+                    }
+
+                    }
+
+
+
+                    updateTodo(`${element._id}`, theUpdatedToodo)
+                })
+
+
+                // divAlerts.addEventListener('click', function(){
+                
 
 
                 //     fetch(`${endPointTodo}/${element._id}`, {
@@ -174,7 +213,7 @@
                     .then((resolv) => resolv.json())
                     .catch((err) => console.log(err))
 
-                     location.reload()
+                    //  location.reload()
         }
 
         buttonTodo.addEventListener('click', function(){
@@ -187,6 +226,20 @@
 
 
 
+
+        const updateTodo = (id, todo) => {
+        fetch(`${endPointTodo}/${id}`, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(todo),
+        })
+            .then((res) => console.log(res))
+            .catch((fa) => console.log(fa));
+        };
+
+
         // const removeTodo = (id)=> {
         //     fetch(`${endPointTodo}/${id}` ,{
         //         method : "DELETE" ,
@@ -195,7 +248,7 @@
         //     .then((hasil) => console.log(hasil))
         //     .catch((err) => console.log(err) )
         // }
-        // removeTodo("641951d422534003e8c8f0eb")
+        // removeTodo("641a82a822534003e8c8f93c")
 
 
 
