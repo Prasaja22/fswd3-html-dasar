@@ -66,7 +66,7 @@
         var buttonTodo = document.getElementById("button-addon2")
         // instansiasi API
         const baseUrl = "https://crudcrud.com/api/"
-        const apiKey = "6d3497286c144bbd867ad4cf4b793032"
+        const apiKey = "cb40eb3873c343599d92abfcea7dc032"
         const urlApi = `${baseUrl}` + `${apiKey}`
         const endPointTodo = `${urlApi}/todo`
         // const endPointGetTodo = `${urlApi}/get`
@@ -213,7 +213,7 @@
                     .then((resolv) => resolv.json())
                     .catch((err) => console.log(err))
 
-                     location.reload()
+                    // setTimeout(location.reload(), 5000)
         }
 
         buttonTodo.addEventListener('click', function(){
@@ -221,6 +221,12 @@
                 alert('Data Belum di isi')
             }
             addDataAPI()
+            
+            confirm("Data Berhasil Ditambahkan")
+
+            if(confirm){
+                location.reload()
+            }
 
         })
 
