@@ -107,3 +107,22 @@
 .read-items > p {
     margin-left : 20px;
 }
+
+@media only screen and (max-width:600px) {
+    .item-title{
+        display: none;
+    }
+
+    .nav{
+        margin-left: 65px;
+        box-shadow: 100px
+    }
+
+    .bottom-container{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:601px) {
+    
+}

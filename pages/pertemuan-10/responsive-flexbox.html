@@ -16,13 +16,13 @@
             <div class="container-inside-nav">
                 
                 <div class="container-items">   
-
+                    
                     <div class="item-title">
                         <p>Blogku</p>
                     </div>
-
                     
-                    <div class="nav">
+                    
+                    <div class="nav" id="nav">
                         <p>Home</p>
                         <p>About</p>
                         <p>Content</p>
@@ -121,6 +121,31 @@
         </div>
 
     </div>
+
+    <script>
+
+        var mediaQuery = window.matchMedia("(max-width:600px)")
+
+        mediaQuery.addListener(function(){
+            if(mediaQuery.matches) {
+
+                var itemsAdd = document.createElement('p')
+                var getIClass = document.getElementById('nav')
+
+                itemsAdd.textContent = "Blog"
+
+                console.log(getIClass)
+
+                getIClass.appendChild(itemsAdd)
+
+            } else {
+                
+                location.reload()
+
+            }
+        })
+
+    </script>
 
 </body>
 </html>
