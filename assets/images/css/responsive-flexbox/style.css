@@ -121,6 +121,10 @@
     .bottom-container{
         display: none;
     }
+
+    .card-container{
+        margin: 20px;
+    }
 }
 
 @media only screen and (max-width:601px) {
