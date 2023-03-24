@@ -22,15 +22,24 @@
 
     display : inline-flex;
     width: 50%;
-justify-content: space-between;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .nav{
     display : inline-flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.item-title{
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
 .nav > p {
-    margin-right: 20%;
+    margin-left: 20px;
+    margin-right: 10%;
 }
 
 
